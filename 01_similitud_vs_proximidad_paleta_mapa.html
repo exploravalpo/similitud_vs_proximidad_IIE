@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Similitud y proximidad</title>
+<style>
+
+:root{
+  --background:#0EFFF0;
+  --petrol:#006C86;
+  --petrol-dark:#07566A;
+  --sky:#AAD3DF;
+  --sky-soft:#EEF6F9;
+  --warm:#F2EFE9;
+  --white:#FFFFFF;
+  --text:#17343D;
+  --muted:#55747D;
+  --line:rgba(0,108,134,.18);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;height:100%}
+body{
+  background:var(--background);
+  color:var(--text);
+  font-family:"FF Meta","Segoe UI",Arial,sans-serif;
+}
+h1,h2,h3,.display{
+  font-family:"Broadside","Arial Black","Arial Narrow Bold",sans-serif;
+}
+
+body{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:28px}
+.panel{
+  width:min(1500px,96vw);
+  min-height:560px;
+  background:var(--warm);
+  border-radius:30px;
+  box-shadow:0 20px 55px rgba(0,75,92,.16);
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  position:relative;
+  border:1px solid rgba(0,108,134,.16)
+}
+.side{padding:58px 58px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.left{background:linear-gradient(135deg,var(--sky-soft),var(--warm))}
+.right{background:linear-gradient(225deg,var(--sky),var(--warm) 72%)}
+.kicker{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;color:var(--petrol)}
+h2{font-size:clamp(30px,3.4vw,50px);margin:0 0 14px;letter-spacing:-.03em;color:var(--petrol-dark)}
+p{font-size:19px;line-height:1.5;margin:0;color:var(--muted);max-width:570px}
+.icon{
+  width:78px;height:78px;border-radius:22px;display:grid;place-items:center;
+  margin-bottom:26px;font-size:35px;font-weight:900;color:white;
+  box-shadow:0 8px 20px rgba(0,108,134,.18)
+}
+.left .icon{background:var(--petrol)} .right .icon{background:#55A0B5}
+.bridge{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:92px;height:92px;border-radius:50%;
+  background:var(--background);border:8px solid var(--warm);
+  display:grid;place-items:center;font-size:29px;font-weight:900;z-index:3;color:var(--petrol-dark);
+  box-shadow:0 10px 24px rgba(0,75,92,.16)
+}
+.footer{
+  grid-column:1/-1;background:var(--petrol);color:white;padding:23px 42px;
+  text-align:center;font-size:18px
+}
+.footer b{color:var(--background)}
+@media(max-width:900px){
+ .panel{grid-template-columns:1fr}
+ .bridge{display:none}
+ .footer{grid-column:1}
+ .side{padding:42px 30px}
+}
+</style>
+</head>
+<body>
+<div class="panel">
+  <section class="side left">
+    <div class="kicker">Clusters por atributos</div>
+    <div class="icon">≈</div>
+    <h2>Similitud</h2>
+    <p>Agrupa establecimientos porque sus proyectos <b>se parecen</b> en categorías, disciplinas o áreas de estudio, aunque se encuentren en comunas distintas.</p>
+  </section>
+
+  <div class="bridge">↔</div>
+
+  <section class="side right">
+    <div class="kicker">Clusters espaciales</div>
+    <div class="icon">⌖</div>
+    <h2>Proximidad</h2>
+    <p>Agrupa establecimientos porque <b>están cerca</b> en el territorio, independientemente de que sus proyectos compartan o no las mismas características.</p>
+  </section>
+
+  <div class="footer">
+    <b>Dos lecturas complementarias:</b> establecimientos lejanos pueden compartir perfiles similares, mientras que establecimientos cercanos pueden desarrollar proyectos muy distintos.
+  </div>
+</div>
+</body>
+</html>
